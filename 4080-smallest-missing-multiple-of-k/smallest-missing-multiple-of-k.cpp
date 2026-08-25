@@ -3,19 +3,18 @@ public:
     int missingMultiple(vector<int>& nums, int k) {
         int n = nums.size();
 
-        for(int i =1;i<=n+1;i++){
-            int x = k*i;
-            bool found = false;
+        unordered_set<int> st;
 
-            for(int num : nums){
-                if(num == x){
-                    found = true;
-                    break;
-                }
-            }
-            if(!found)
-            return x;
+        for (int x : nums) {
+            st.insert(x);
         }
-        return -1;
+
+        for (int i = 1;; i++) {
+            int x = k * i;
+
+            if (st.find(x) == st.end()) {
+                return x;
+            }
+        }
     }
 };
