@@ -2,13 +2,14 @@ class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
         int n = nums.size();
-        for(int&x : nums){
-            x = x*x;
+        vector<int> ans;
+        for(auto it : nums){
+            ans.push_back(it*it);
         }
-        sort(nums.begin(),nums.end());
+        sort(ans.begin(),ans.end());
 
         
-        return nums;
+        return ans;
 
     }
 };
